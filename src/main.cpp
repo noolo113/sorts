@@ -24,6 +24,24 @@ std::vector<int> InsertionSort(const std::vector<int>& arr) {
 
 
 
+std::vector<int> StupidSort(const std::vector<int>& arr) {
+	// takes too long
+	auto ret = arr;
+	if(ret.size() <= 1) {
+		return ret;
+	}
+	else {
+		std::sort(ret.begin(), ret.end());
+		std::prev_permutation(ret.begin(), ret.end());
+		while(!std::is_sorted(ret.begin(), ret.end())) {
+			std::next_permutation(ret.begin(), ret.end());
+
+		}
+		return ret;
+	}
+}
+
+
 void PrintArray(const std::string& message, const std::vector<int>& arr) {
 	std::cout << message << ": ";
 	std::copy(arr.begin(), arr.end(), std::ostream_iterator<int>{std::cout, " "});
@@ -47,4 +65,5 @@ int main() {
 
 	PrintArray("Initial array", arr);
 	PrintArray("Insertion sort", InsertionSort(arr));
+	PrintArray("Stupid sort", StupidSort(arr));
 }
