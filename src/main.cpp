@@ -66,4 +66,5 @@ int main() {
 	PrintArray("Initial array", arr);
 	PrintArray("Insertion sort", InsertionSort(arr));
 	PrintArray("Stupid sort", StupidSort(arr));
+	PrintArray("Bubble sort", StupidSort(arr));
 }
